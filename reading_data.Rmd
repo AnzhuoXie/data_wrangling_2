@@ -103,3 +103,14 @@ nyc_water_json =
   as_tibble()
 ```
 
+## BRFSS
+
+Same process, different data
+
+```{r}
+brfss_2010 = 
+  GET('https://chronicdata.cdc.gov/resource/acme-vg9e.csv',
+      query = list('$limit' = 2000)) %>%  ##by default, it only retrive 1000 data, and we can use the query parameter to set the number of data we want 
+  content('parsed')
+```
+
