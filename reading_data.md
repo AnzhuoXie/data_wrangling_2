@@ -25,3 +25,39 @@ tabl_marj =
   slice(-1)  %>%   ## slice function at rows, and this means get rid of the fisrt row
   as_tibble()     ## convert the format to tibble format
 ```
+
+## Star Wars movie info
+
+I want the data from [here](https://www.imdb.com/list/ls070150896/)
+
+``` r
+url = "https://www.imdb.com/list/ls070150896/"
+
+swm_html = read_html(url)
+```
+
+grab elements that I want.
+
+``` r
+title_vec = 
+  swm_html %>% 
+  html_nodes(css = '.lister-item-header a') %>% 
+  html_text()    ## Convert into the text format
+
+gross_rev_vec = 
+  swm_html %>% 
+  html_nodes(css = '.text-small:nth-child(7) span:nth-child(5)') %>% 
+  html_text()
+
+runtime_vec = 
+  swm_html %>% 
+  html_nodes(css = '.runtime') %>% 
+  html_text()
+
+swm_df = 
+  tibble(
+    title = title_vec,
+    gross_rev = gross_rev_vec,
+    runtime = runtime_vec
+  )
+```
