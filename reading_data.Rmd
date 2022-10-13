@@ -128,3 +128,5 @@ pokemon_data$height
 pokemon_data$abilities
 ```
 
+## Cloding thoughts
+

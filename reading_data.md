@@ -163,3 +163,5 @@ pokemon_data$abilities
     ## 
     ## [[2]]$slot
     ## [1] 3
+
+## Cloding thoughts
